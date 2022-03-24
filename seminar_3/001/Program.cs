@@ -6,55 +6,37 @@ int a_x = 0, a_y = 0,
     b_x = 0, b_y = 0,
     c_x = 0, c_y = 0;
 
-Console.WriteLine("\nCoordinates:");    
-if (number == 1)
+void SetCoord(int x_mult, int y_mult)
 {
-    a_x = rnd.Next(1, 50);
-    a_y = rnd.Next(1, 50);
-    b_x = rnd.Next(1, 50);
-    b_y = rnd.Next(1, 50);
-    c_x = rnd.Next(1, 50);
-    c_y = rnd.Next(1, 50);
+    a_x = rnd.Next(1, 50) * x_mult;
+    a_y = rnd.Next(1, 50) * y_mult;
+    b_x = rnd.Next(1, 50) * x_mult;
+    b_y = rnd.Next(1, 50) * y_mult;
+    c_x = rnd.Next(1, 50) * x_mult;
+    c_y = rnd.Next(1, 50) * y_mult;
     Console.WriteLine($"A({a_x}, {a_y})");
     Console.WriteLine($"B({b_x}, {b_y})");
     Console.WriteLine($"C({c_x}, {c_y})");
+}
+
+Console.WriteLine("\nCoordinates:");
+if (number == 1)
+{
+    SetCoord(1, 1);
 }
 else if (number == 2)
 {
-    a_x = rnd.Next(-50, 1);
-    a_y = rnd.Next(1, 50);
-    b_x = rnd.Next(-50, 1);
-    b_y = rnd.Next(1, 50);
-    c_x = rnd.Next(-50, 1);
-    c_y = rnd.Next(1, 50);
-    Console.WriteLine($"A({a_x}, {a_y})");
-    Console.WriteLine($"B({b_x}, {b_y})");
-    Console.WriteLine($"C({c_x}, {c_y})");
+    SetCoord(-1, 1);
 }
 else if (number == 3)
 {
-    a_x = rnd.Next(-50, 1);
-    a_y = rnd.Next(-50, 1);
-    b_x = rnd.Next(-50, 1);
-    b_y = rnd.Next(-50, 1);
-    c_x = rnd.Next(-50, 1);
-    c_y = rnd.Next(-50, 1);
-    Console.WriteLine($"A({a_x}, {a_y})");
-    Console.WriteLine($"B({b_x}, {b_y})");
-    Console.WriteLine($"C({c_x}, {c_y})");
+    SetCoord(-1, -1);
 }
 else if (number == 4)
 {
-    a_x = rnd.Next(1, 50);
-    a_y = rnd.Next(-50, 1);
-    b_x = rnd.Next(1, 50);
-    b_y = rnd.Next(-50, 1);
-    c_x = rnd.Next(1, 50);
-    c_y = rnd.Next(-50, 1);
-    Console.WriteLine($"A({a_x}, {a_y})");
-    Console.WriteLine($"B({b_x}, {b_y})");
-    Console.WriteLine($"C({c_x}, {c_y})");
+    SetCoord(1, -1);
 }
+
 double a_distance = Math.Sqrt(Math.Pow(a_x, 2) + Math.Pow(a_y, 2));
 double b_distance = Math.Sqrt(Math.Pow(b_x, 2) + Math.Pow(b_y, 2));
 double c_distance = Math.Sqrt(Math.Pow(c_x, 2) + Math.Pow(c_y, 2));
